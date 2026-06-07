@@ -1,0 +1,31 @@
+.restaurant-details {
+  padding: 50px;
+}
+
+.restaurant-details h1 {
+  margin-bottom: 40px;
+}
+
+.foods-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+@media screen and (max-width: 992px) {
+  .foods-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .restaurant-details {
+    padding: 20px;
+  }
+
+  .foods-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

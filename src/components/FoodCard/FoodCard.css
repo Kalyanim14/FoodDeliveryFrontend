@@ -1,0 +1,44 @@
+.food-card {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.food-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.food-content {
+  padding: 20px;
+}
+
+.food-content h3 {
+  margin-bottom: 10px;
+}
+
+.food-content p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.food-content h4 {
+  margin-bottom: 15px;
+  color: #ff5a1f;
+}
+
+.food-content button {
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  background-color: #ff5a1f;
+  color: white;
+
+  border-radius: 8px;
+  cursor: pointer;
+}
+

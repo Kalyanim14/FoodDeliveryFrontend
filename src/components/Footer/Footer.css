@@ -1,0 +1,20 @@
+
+.footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+.footer h2 {
+  color: #ff5a1f;
+  margin-bottom: 10px;
+}
+
+.footer-copy {
+  margin-top: 15px;
+  color: #bbb;
+}
+
