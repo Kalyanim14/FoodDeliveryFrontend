@@ -2,6 +2,14 @@
   padding: 50px;
 }
 
+.noitems{
+    height: 100px;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
 .cart-page h1 {
   margin-bottom: 40px;
 }

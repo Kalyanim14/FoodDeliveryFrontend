@@ -2,14 +2,26 @@
   background-color: white;
   border-radius: 15px;
   overflow: hidden;
-
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.food-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+.food-card:hover {
+  transform: translateY(-5px);
+} 
+
+img {
+  width: 100%;            /* Fills the horizontal space of the card */
+  height: 200px;          /* Gives it a nice, realistic height */
+  object-fit: cover;      /* Crops nicely without squishing or distorting */
+  border-radius: 12px 12px 0 0; /* Rounds just the top corners to match the card */
+  display: block;         /* Removes unwanted bottom spacing gap */
+}
+.food-content {
+  padding: 20px;
+}
+
+.food-content h3 {
+  margin-bottom: 10px;
 }
 
 .food-content {

@@ -1,8 +1,13 @@
 import "./Navbar.css";
 
 import { Link, useNavigate } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
-
+import {
+  FaShoppingCart,
+  FaHome,
+  FaUtensils,
+  FaClipboardList,
+  FaUserShield
+} from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -25,77 +30,81 @@ function Navbar() {
         </Link>
       </div>
 
-      <ul className="navbar-links">
+        <ul className="navbar-links">
+        
         <li>
-          <Link to="/">
-            Home
-          </Link>
+            <Link to="/">
+            <FaHome />
+            <span> Home</span>
+            </Link>
         </li>
 
         <li>
-          <Link to="/restaurants">
-            Restaurants
-          </Link>
+            <Link to="/restaurants">
+            <FaUtensils />
+            <span> Restaurants</span>
+            </Link>
         </li>
 
         {user && (
-          <>
+            <>
             <li>
-              <Link to="/orders">
-                Orders
-              </Link>
+                <Link to="/orders">
+                <FaClipboardList />
+                <span> Orders</span>
+                </Link>
             </li>
 
             <li>
-              <Link
-                to="/cart"
-                className="cart-icon"
-              >
-                <FaShoppingCart />
-              </Link>
+                <Link to="/cart" >
+                    <FaShoppingCart />
+                    <span> Cart</span>
+                </Link>
             </li>
-          </>
+            </>
         )}
-
         {user?.role === "ADMIN" && (
-          <li>
+            <li>
             <Link to="/admin">
-              Admin
+                <FaUserShield />
+                <span> Admin</span>
             </Link>
-          </li>
+            </li>
         )}
-
+        </ul>
+        <ul className="navbar-links">
         {user ? (
-          <>
+            <>
             <li className="welcome-text">
-              Hi, {user.name}
+                Hi, {user.name}
             </li>
 
             <li>
-              <button
+                <button
                 onClick={handleLogout}
                 className="logout-btn"
-              >
+                >
                 Logout
-              </button>
+                </button>
             </li>
-          </>
+            </>
         ) : (
-          <>
+            <>
             <li>
-              <Link to="/login">
+                <Link to="/login">
                 Login
-              </Link>
+                </Link>
             </li>
 
             <li>
-              <Link to="/register">
+                <Link to="/register">
                 Register
-              </Link>
+                </Link>
             </li>
-          </>
+            </>
         )}
-      </ul>
+
+        </ul>
     </nav>
   );
 }

@@ -59,7 +59,7 @@ function Cart() {
       <h1>Your Cart</h1>
 
       {cartItems.length === 0 ? (
-        <h2>Cart is Empty</h2>
+        <h2 className="noitems">Cart is Empty</h2>
       ) : (
         <>
           <div className="cart-items">

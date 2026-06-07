@@ -1,20 +1,212 @@
-* {
+/* ==========================================================================
+   1. GLOBAL VARIABLES & ACCENT SYSTEM
+   ========================================================================== */
+:root {
+  /* Brand Theme Colors */
+  --primary: #ff4757;          /* Foody Coral Red */
+  --primary-hover: #e84118;    /* Darker Red */
+  --primary-glow: rgba(255, 71, 87, 0.15);
+  
+  /* Neutral Color Palette */
+  --text-main: #2f3542;        /* Dark Charcoal for high readability */
+  --text-muted: #747d8c;       /* Muted Grey for labels & placeholders */
+  --bg-app: #f1f2f6;           /* Soft grey background */
+  --bg-card: #ffffff;
+  --border-base: #ced6e0;      /* Standard border grey */
+  --border-hover: #a4b0be;
+  
+  /* System States */
+  --disabled-bg: #f5f6fa;
+  --disabled-text: #a4b0be;
+  
+  /* Layout Controls */
+  --radius: 8px;               /* Consistent rounding metric */
+  --transition: all 0.2s ease-in-out;
+}
+
+/* ==========================================================================
+   2. BOX MODEL RESET
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f8f9fa;
-  color: #222;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-app);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* ==========================================================================
+   3. HYPERLINKS (<a>)
+   ========================================================================== */
 a {
+  color: var(--primary);
   text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
 }
 
-button {
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+a:focus-visible {
+  outline: 2px dashed var(--primary);
+  outline-offset: 4px;
+}
+
+/* ==========================================================================
+   4. FORM INPUTS & TEXTAREAS
+   ========================================================================== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+textarea {
+  padding: 12px 16px;
+  font-size: 16px; /* Prevents mobile browsers from forcefully auto-zooming */
   font-family: inherit;
+  color: var(--text-main);
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-base);
+  border-radius: var(--radius);
+  outline: none;
+  transition: var(--transition);
 }
 
+input:hover, 
+textarea:hover {
+  border-color: var(--border-hover);
+}
+
+input:focus, 
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+input::placeholder, 
+textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical; /* Blocks horizontal breaking layouts */
+}
+
+/* ==========================================================================
+   5. DROPDOWN SELECTS (<select>)
+   ========================================================================== */
+select {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--text-main);
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-base);
+  border-radius: var(--radius);
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+  
+  /* Custom arrow UI inject */
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23747d8c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+select:hover {
+  border-color: var(--border-hover);
+}
+
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+/* ==========================================================================
+   6. ACTIONS & BUTTONS
+   ========================================================================== */
+button, 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #ffffff;
+  background-color: var(--primary);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+  user-select: none;
+}
+
+button:hover, 
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+button:active, 
+.btn:active {
+  transform: scale(0.98); /* Satisfying physical press feedback */
+}
+
+button:focus-visible, 
+.btn:focus-visible {
+  outline: 2px solid var(--text-main);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   7. INTERACTIVE DISABLED HANDLER
+   ========================================================================== */
+input:disabled,
+textarea:disabled,
+select:disabled,
+button:disabled,
+.btn.disabled {
+  background-color: var(--disabled-bg) !important;
+  border-color: var(--border-base) !important;
+  color: var(--disabled-text) !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   8. COMPONENT FIX: APP FOOD CARDS
+   ========================================================================== */
+.food-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* The corrected layout rules for food photos */
+.food-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* Crops symmetrically without squeezing/stretching */
+  display: block;
+}

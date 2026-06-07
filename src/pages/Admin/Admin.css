@@ -1,73 +1,219 @@
 .admin-page {
-  padding: 50px;
+  padding: 40px;
+  background-color: #f5f7fb;
+  min-height: 100vh;
 }
 
 .admin-page h1 {
   margin-bottom: 40px;
+  font-size: 36px;
 }
 
-.admin-form {
-  background-color: white;
+.section-header {
+  margin-bottom: 20px;
+}
 
-  padding: 30px;
+.section-header h2 {
+  font-size: 28px;
+  color: #222;
+}
 
-  border-radius: 12px;
-
+.cards-wrapper {
   display: flex;
-  flex-direction: column;
+
   gap: 20px;
 
+  align-items: stretch;
+
   margin-bottom: 40px;
-
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
 
-.admin-form input {
-  padding: 14px;
+.horizontal-scroll {
+  display: flex;
+  gap: 20px;
 
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  overflow-x: auto;
+
+  padding-bottom: 20px;
+
+  margin-bottom: 40px;
 }
 
-.admin-form button {
-  border: none;
-  background-color: #ff5a1f;
-  color: white;
-
-  padding: 14px;
-
-  border-radius: 8px;
-  cursor: pointer;
+.horizontal-scroll::-webkit-scrollbar {
+  height: 8px;
 }
 
-.admin-restaurants {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 25px;
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
 }
 
-.admin-restaurant-card {
+.modern-card {
+  min-width: 280px;
+
   background-color: white;
 
-  padding: 20px;
+  border-radius: 18px;
 
-  border-radius: 12px;
+  overflow: hidden;
 
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.08);
+
+  transition: 0.3s;
 }
 
-.admin-restaurant-card h3 {
+.modern-card:hover {
+  transform: translateY(-5px);
+}
+
+.modern-card img {
+  width: 100%;
+  height: 180px;
+
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
   margin-bottom: 10px;
 }
 
+.card-content p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.card-content span {
+  color: #888;
+  font-size: 14px;
+}
+
+.add-card {
+  min-width: 280px;
+  height: 380px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 80px;
+  font-weight: bold;
+
+  color: #ff5a1f;
+
+  background-color: white;
+
+  border: 3px dashed #ff5a1f;
+
+  border-radius: 18px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.add-card:hover {
+  background-color: #fff4ef;
+}
+
+.popup-form {
+  background-color: white;
+  width: 60%;
+  align-self: center;
+
+  padding: 30px;
+
+  border-radius: 18px;
+
+  margin-bottom: 50px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,0.08);
+}
+
+.popup-form input,
+.popup-form textarea,
+.popup-form select {
+  padding: 14px;
+
+  border-radius: 10px;
+
+  border: 1px solid #ddd;
+
+  outline: none;
+}
+
+.popup-form button {
+  border: none;
+
+  padding: 14px;
+
+  background-color: #ff5a1f;
+
+  color: white;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.admin-buttons {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.edit-btn,
+.delete-btn {
+  flex: 1;
+
+  border: none;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: orange;
+}
+
+.delete-btn {
+  background-color: crimson;
+}
+
+hr {
+  margin: 50px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
 @media screen and (max-width: 768px) {
+
   .admin-page {
     padding: 20px;
   }
 
-  .admin-restaurants {
-    grid-template-columns: 1fr;
+  .admin-page h1 {
+    font-size: 28px;
+  }
+
+  .modern-card,
+  .add-card {
+    min-width: 240px;
   }
 }
-

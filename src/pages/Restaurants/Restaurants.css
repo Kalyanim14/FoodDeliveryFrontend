@@ -1,7 +1,13 @@
 .restaurants-page {
   padding: 50px;
 }
-
+.noitems{
+    height: 100px;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
 .restaurants-page h1 {
   margin-bottom: 40px;
 }
@@ -11,6 +17,13 @@
   grid-template-columns: repeat(3, 1fr);
 
   gap: 30px;
+}
+.restaurants-page img {
+  width: 100%;            /* Fills the horizontal space of the card */
+  height: 200px;          /* Gives it a nice, realistic height */
+  object-fit: cover;      /* Crops nicely without squishing or distorting */
+  border-radius: 12px 12px 0 0; /* Rounds just the top corners to match the card */
+  display: block;         /* Removes unwanted bottom spacing gap */
 }
 
 @media screen and (max-width: 992px) {
