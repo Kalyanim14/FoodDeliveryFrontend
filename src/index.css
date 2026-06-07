@@ -157,7 +157,6 @@ button,
   cursor: pointer;
   white-space: nowrap;
   transition: var(--transition);
-  user-select: none;
 }
 
 button:hover, 
